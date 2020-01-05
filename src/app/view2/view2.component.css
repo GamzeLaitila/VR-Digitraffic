@@ -1,0 +1,43 @@
+body {
+    margin: 0%;
+    width: 100%;
+    float: left;
+    background-color: #818181;
+}
+
+div.absoluteLeft {
+    position: absolute;
+    top: 160px;
+    left: 12%;
+}
+
+div.absoluteCenter {
+    position: absolute;
+    top: 160px;
+    left: 30%;
+}
+
+div.absoluteRight {
+    position: absolute;
+    top: 160px;
+    left: 55%;
+}
+
+.sideDivs {
+    width: 10%;
+    float: left;
+    height: 10000px;
+    background-color: #95a3af;
+}
+
+.centerDiv {
+    width: 80%;
+    float: left;
+    height: 10000px;
+    background-color: #eee2e2;
+}
+
+p {
+    padding-top: 25px;
+    text-align: center;
+}

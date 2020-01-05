@@ -1,0 +1,18 @@
+<div class="absoluteRight" *ngIf="trainGPS" display="grid-cell">
+    <table class="absoluteRight">
+        <tr>
+            <td><b> Train number: &nbsp;&nbsp;&nbsp; </b></td>
+            <td><b> Latitude: &nbsp;&nbsp;&nbsp; </b></td>
+            <td><b> Longitude: &nbsp;&nbsp;&nbsp; </b></td>
+            <td><b> Time: </b></td>
+        </tr>
+        <ng-container *ngFor="let train of trainGPS; let i = index">
+            <tr>
+                <td> {{ trainGPS[i].trainNumber }} </td>
+                <td> {{ trainGPS[i].location.coordinates[0] }} </td>
+                <td> {{ trainGPS[i].location.coordinates[1] }} </td>
+                <td> {{ trainGPS[i].timestamp | date: 'HH:mm:ss' }} </td>
+            </tr>
+        </ng-container>
+    </table>
+</div>

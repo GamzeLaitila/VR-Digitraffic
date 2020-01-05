@@ -1,0 +1,41 @@
+<body>
+    <div class="sideDivs">
+        <p></p>
+    </div>
+    <div class="centerDiv">
+        <h4>
+            <p>Choose a day and then a train to view that train's actions on the chosen day</p>
+        </h4>
+        <div class="absoluteLeft">
+            <mini-calendar [(selectedDate)]="dateSelected" (click)="showSelectedDate()" style="position:fixed; "></mini-calendar>
+        </div>
+
+        <div class="absoluteCenter" *ngIf="response" display="grid-cell">
+            <h4>Selected day: {{ dateSelected | date: 'yyyy-MM-dd' }}</h4>
+            <h4><span>Trains: </span></h4>
+            <select [(ngModel)]="trains">
+                <option *ngFor="let train of response; let i = index" value={{i}}>{{ response[i].trainType }}{{i}}</option>
+            </select>
+        </div>
+
+        <div class="absoluteRight" *ngIf="trains" display="grid-cell">
+            <table>
+                <tr>
+                    <td><b> Station name: &nbsp;&nbsp;&nbsp; </b></td>
+                    <td><b> Action type: &nbsp;&nbsp;&nbsp; </b></td>
+                    <td><b> Time: </b></td>
+                </tr>
+                <ng-container *ngFor="let trip of response; let i = index">
+                    <tr>
+                        <td> {{ response[this.trains].timeTableRows[i].stationShortCode }} </td>
+                        <td> {{ response[this.trains].timeTableRows[i].type }} </td>
+                        <td> {{ response[this.trains].timeTableRows[i].actualTime | date: 'HH:mm:ss' }} </td>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+    <div class="sideDivs">
+        <p></p>
+    </div>
+</body>

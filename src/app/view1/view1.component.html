@@ -1,0 +1,30 @@
+<body>
+    <div class="sideDivs">
+    </div>
+    <div class="centerDiv" display="grid-row">
+        <h4>
+            <p>Click on a spot on the map to get information about the trains</p>
+            <p style="padding-top: 1px;">within 100 km radius, in the last 15 minutes</p>
+        </h4>
+        <div class="absoluteLeft" display="grid-cell">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" style="height: 450px; 
+                        width: 500px" (mapClick)="mapClicked($event)">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                <!--<agm-marker (markerClick)="showTeamInfo('hifk')" [latitude]="60.18916667" [longitude]="24.92222222" zoom="6" [iconUrl]="icon_hifk"></agm-marker>
+                <agm-marker (markerClick)="showTeamInfo('hpk')" [latitude]="60.99500000" [longitude]="24.43194444" zoom="6" [iconUrl]="icon_hpk"></agm-marker>
+                <agm-marker (markerClick)="showTeamInfo('ilves')" [latitude]="61.49583333" [longitude]="23.82416667" zoom="6" [iconUrl]="icon_ilves"></agm-marker>
+                <agm-marker (markerClick)="showTeamInfo('tappara')" [latitude]="61.49583333" [longitude]="23.82416667" zoom="6" [iconUrl]="icon_tappara"></agm-marker>
+                -->
+            </agm-map>
+        </div>
+
+        <app-results [latKoor]="lat" [lngKoor]="lng">
+        </app-results>
+
+        <!--<div class="absoluteRight" display="grid-cell">
+            <app-teams-dropdown></app-teams-dropdown>
+        </div>-->
+    </div>
+    <div class="sideDivs">
+    </div>
+</body>
